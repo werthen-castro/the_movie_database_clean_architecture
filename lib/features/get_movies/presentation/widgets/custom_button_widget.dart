@@ -16,11 +16,7 @@ class _CustomButtomWidgetState extends State<CustomButtomWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        setState(() {
-          widget.isSelected = !widget.isSelected;
-        });
-      },
+      onTap: widget.onTap,
       child: Container(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:the_movie_database_clean_arch/core/utils/const.dart';
+import 'package:the_movie_database_clean_arch/features/get_movies/presentation/controllers/app_bar_controller.dart';
 
 import 'custom_button_widget.dart';
 
@@ -14,6 +16,15 @@ class CustomAppBarWidget extends StatefulWidget implements PreferredSizeWidget {
 }
 
 class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
+  late AppBarController appBarController;
+
+  @override
+  void initState() {
+    appBarController = AppBarController();
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -31,7 +42,7 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: TextField(
                 decoration: InputDecoration(
-                  label: const Text('Pesquise filmes'),
+                  label: Text('Pesquise filmes'),
                   prefixIcon: const Icon(Icons.search),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(26.0),
@@ -39,42 +50,59 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
                 ),
               ),
             ),
-            TabBar(
-              controller: widget.tabController,
-              isScrollable: true,
-              indicatorColor: Colors.transparent,
-              labelPadding: EdgeInsets.all(12),
-              tabs: [
-                Tab(
-                  icon: CustomButtomWidget(
-                    isSelected: true,
-                    title: 'Ação',
-                    onTap: () {},
-                  ),
-                ),
-                Tab(
-                  icon: CustomButtomWidget(
-                    isSelected: true,
-                    title: 'Aventura',
-                    onTap: () {},
-                  ),
-                ),
-                Tab(
-                  icon: CustomButtomWidget(
-                    isSelected: true,
-                    title: 'Fantasia',
-                    onTap: () {},
-                  ),
-                ),
-                Tab(
-                  icon: CustomButtomWidget(
-                    isSelected: true,
-                    title: 'Comédia',
-                    onTap: () {},
-                  ),
-                ),
-              ],
-            ),
+            StreamBuilder<int>(
+                initialData: GenresIds.action,
+                stream: appBarController.genreSelected,
+                builder: (context, snapshot) {
+                  return TabBar(
+                    controller: widget.tabController,
+                    isScrollable: true,
+                    indicatorColor: Colors.transparent,
+                    labelPadding: EdgeInsets.symmetric(horizontal: 12),
+                    tabs: [
+                      Tab(
+                        child: CustomButtomWidget(
+                          isSelected: snapshot.data == 0,
+                          title: 'Ação',
+                          onTap: () {
+                            appBarController.changeGenreSelected(
+                                0, widget.tabController);
+                          },
+                        ),
+                      ),
+                      Tab(
+                        child: CustomButtomWidget(
+                          isSelected: snapshot.data == 1,
+                          title: 'Aventura',
+                          onTap: () {
+                            appBarController.changeGenreSelected(
+                                1, widget.tabController);
+                          },
+                        ),
+                      ),
+                      Tab(
+                        child: CustomButtomWidget(
+                          isSelected: snapshot.data == 2,
+                          title: 'Fantasia',
+                          onTap: () {
+                            appBarController.changeGenreSelected(
+                                2, widget.tabController);
+                          },
+                        ),
+                      ),
+                      Tab(
+                        child: CustomButtomWidget(
+                          isSelected: snapshot.data == 3,
+                          title: 'Comédia',
+                          onTap: () {
+                            appBarController.changeGenreSelected(
+                                3, widget.tabController);
+                          },
+                        ),
+                      ),
+                    ],
+                  );
+                }),
           ],
         ),
       ),
