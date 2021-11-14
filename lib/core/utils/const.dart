@@ -3,8 +3,8 @@ class UrlsBase {
   static String urlBaseRequest = "https://api.themoviedb.org/3";
 }
 
-class Generes {
-  static Map<int, String> mapGeneres = {
+class Genres {
+  static Map<int, String> mapGenres = {
     28: 'Ação',
     12: 'Aventura',
     16: 'Animação',

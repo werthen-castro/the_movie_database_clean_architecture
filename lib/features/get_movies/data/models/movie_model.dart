@@ -1,4 +1,4 @@
-import 'package:the_movie_database_clean_arch/features/domain/entities/movie_entity.dart';
+import 'package:the_movie_database_clean_arch/features/get_movies/domain/entities/movie_entity.dart';
 
 class MovieModel extends MovieEntity {
   const MovieModel({

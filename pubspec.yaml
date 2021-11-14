@@ -37,6 +37,7 @@ dependencies:
   dio: ^4.0.1
   dartz: ^0.10.0
   equatable: ^2.0.3
+  mocktail: ^0.2.0
 
 dev_dependencies:
   flutter_test:

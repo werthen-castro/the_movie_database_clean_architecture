@@ -1,4 +1,4 @@
-import 'package:the_movie_database_clean_arch/features/data/models/movie_model.dart';
+import 'package:the_movie_database_clean_arch/features/get_movies/data/models/movie_model.dart';
 
 String listMoviesMock = """ {
     "page": 1,
