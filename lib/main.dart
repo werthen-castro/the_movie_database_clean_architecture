@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
+import 'core/config/injector.dart';
 import 'features/get_movies/presentation/pages/home_page.dart';
 
 void main() {
+  Injector.init();
+
   runApp(const MyApp());
 }
 
