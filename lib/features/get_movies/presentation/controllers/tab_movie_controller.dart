@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:rxdart/rxdart.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/domain/entities/movie_entity.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/domain/usecases/get_movie_use_case.dart';
+import 'package:the_movie_database_clean_arch/usecases/usecase.dart';
 
 class TabMovieController {
   final _listMovies = BehaviorSubject<List<MovieEntity>>();
