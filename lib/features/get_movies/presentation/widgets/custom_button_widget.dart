@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_database_clean_arch/core/style/custom_colors.dart';
+import 'package:the_movie_database_clean_arch/core/utils/keys.dart';
 
 class CustomButtomWidget extends StatefulWidget {
   final String title;
@@ -16,6 +17,7 @@ class _CustomButtomWidgetState extends State<CustomButtomWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      key: Key(Keys.customButtonWidget),
       onTap: widget.onTap,
       child: Container(
         child: Padding(

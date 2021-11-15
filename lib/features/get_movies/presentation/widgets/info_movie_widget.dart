@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_database_clean_arch/core/style/custom_font_styles.dart';
-import 'package:the_movie_database_clean_arch/core/utils/const.dart';
 import 'package:the_movie_database_clean_arch/core/utils/formats.dart';
+import 'package:the_movie_database_clean_arch/core/utils/keys.dart';
 
 class InfoMovieWidget extends StatelessWidget {
   final String title;
@@ -12,6 +12,7 @@ class InfoMovieWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
+      key: const Key(Keys.infoMovieWidget),
       padding: const EdgeInsets.only(left: 20, bottom: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

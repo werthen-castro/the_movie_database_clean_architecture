@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_database_clean_arch/core/style/custom_colors.dart';
 import 'package:the_movie_database_clean_arch/core/style/custom_font_styles.dart';
+import 'package:the_movie_database_clean_arch/core/utils/keys.dart';
 
 class PointsMovieWidget extends StatelessWidget {
   final double voteAverage;
@@ -10,6 +11,7 @@ class PointsMovieWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RichText(
+      key: const Key(Keys.pointsMovieWidget),
       text: TextSpan(
         style: DefaultTextStyle.of(context).style,
         children: <TextSpan>[

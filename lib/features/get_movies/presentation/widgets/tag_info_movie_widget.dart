@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_database_clean_arch/core/style/custom_colors.dart';
 import 'package:the_movie_database_clean_arch/core/style/custom_font_styles.dart';
+import 'package:the_movie_database_clean_arch/core/utils/keys.dart';
 
 class TagInfoMovieWidget extends StatelessWidget {
   final String description;
@@ -13,6 +14,7 @@ class TagInfoMovieWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      key: const Key(Keys.tagInfoMovieWidget),
       width: tagWidth,
       child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
