@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
-import 'package:the_movie_database_clean_arch/features/get_movies/data/models/genres_model.dart';
+import 'package:the_movie_database_clean_arch/features/get_movies/data/models/genre_model.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/data/models/production_companies_model.dart';
 
 class DetailsMovieEntity extends Equatable {
   int id;
   int budget;
-  List<GenresModel> genres;
+  List<GenreModel> genres;
   String originalTitle;
   String overview;
   String posterPath;

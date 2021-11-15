@@ -1,15 +1,14 @@
-class ProductionCompaniesEntity {
-  int id;
-  String logoPath;
-  String name;
-  String originCountry;
+import 'package:equatable/equatable.dart';
 
-  ProductionCompaniesEntity(
-      {required this.id,
-      required this.logoPath,
-      required this.name,
-      required this.originCountry});
+class ProductionCompaniesEntity extends Equatable {
+  int id;
+  String name;
+
+  ProductionCompaniesEntity({
+    required this.id,
+    required this.name,
+  });
 
   @override
-  List<Object?> get props => [id, name, logoPath, originCountry];
+  List<Object?> get props => [id, name];
 }
