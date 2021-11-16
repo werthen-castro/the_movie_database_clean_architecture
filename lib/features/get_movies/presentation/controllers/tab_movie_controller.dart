@@ -22,7 +22,9 @@ class TabMovieController {
     final result =
         await movieUseCase(ListParams(genreId: genreId, page: _page.value));
 
-    result.fold((failureResponse) {}, (response) {
+    result.fold((failureResponse) {
+      _listMovies.addError(failureResponse);
+    }, (response) {
       _listMovies.add(response);
     });
 

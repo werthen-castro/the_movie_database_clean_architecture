@@ -31,7 +31,6 @@ class _TabMovieWidgetState extends State<TabMovieWidget> {
   Widget build(BuildContext context) {
     return Center(
       child: StreamBuilder<List<MovieEntity>>(
-          initialData: [],
           stream: tabPageController.listMovies,
           builder: (context, snapshot) {
             return snapshot.hasData
@@ -45,7 +44,12 @@ class _TabMovieWidgetState extends State<TabMovieWidget> {
                         genreIds: snapshot.data![index].genreIds,
                       );
                     })
-                : CircularProgressIndicator();
+                : snapshot.hasError
+                    ? const Center(
+                        child:
+                            Text('Ocorreu um erro por favor tente novamente!'),
+                      )
+                    : const CircularProgressIndicator();
           }),
     );
   }

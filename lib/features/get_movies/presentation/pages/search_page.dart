@@ -99,7 +99,12 @@ class _SearchMoviePageState extends State<SearchMoviePage> {
                                 genreIds: snapshot.data![index].genreIds,
                               );
                             })
-                        : CircularProgressIndicator();
+                        : snapshot.hasError
+                            ? const Center(
+                                child: Text(
+                                    'Ocorreu um erro por favor tente novamente!'),
+                              )
+                            : const CircularProgressIndicator();
                   }),
             ),
           ],

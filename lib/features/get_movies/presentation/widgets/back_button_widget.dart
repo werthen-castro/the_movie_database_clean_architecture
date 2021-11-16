@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:the_movie_database_clean_arch/core/style/custom_font_styles.dart';
 
 class BackButtonWidget extends StatelessWidget {
@@ -8,7 +7,7 @@ class BackButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Container(
+      child: SizedBox(
         width: 100,
         child: Card(
           shape: RoundedRectangleBorder(

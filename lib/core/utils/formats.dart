@@ -23,4 +23,9 @@ class Formats {
     var minutos = time % 60;
     return '${hours}h $minutos min';
   }
+
+  static String formaterMoney(int money) {
+    final formt = NumberFormat("#,##0.00", "pt_BR");
+    return formt.format(money);
+  }
 }

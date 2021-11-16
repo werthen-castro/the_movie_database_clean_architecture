@@ -20,7 +20,9 @@ class SearchMovieController {
   searchMovies(String text) async {
     final result = await usecase(ListParams(name: text, page: _page.value));
 
-    result.fold((failureResponse) {}, (response) {
+    result.fold((failureResponse) {
+      _listMovies.addError(failureResponse);
+    }, (response) {
       _listMovies.add(response);
     });
   }

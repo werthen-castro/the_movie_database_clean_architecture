@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:intl/intl.dart';
 import 'package:the_movie_database_clean_arch/core/style/custom_colors.dart';
 import 'package:the_movie_database_clean_arch/core/style/custom_font_styles.dart';
 import 'package:the_movie_database_clean_arch/core/utils/const.dart';
@@ -9,7 +8,6 @@ import 'package:the_movie_database_clean_arch/features/get_movies/domain/entitie
 import 'package:the_movie_database_clean_arch/features/get_movies/domain/usecases/get_movie_for_id_use_case.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/presentation/controllers/details_movie_controller.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/presentation/widgets/back_button_widget.dart';
-import 'package:the_movie_database_clean_arch/features/get_movies/presentation/widgets/card_poster_widget.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/presentation/widgets/points_movie_widget.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/presentation/widgets/tag_genre_movie_widget.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/presentation/widgets/tag_info_movie_widget.dart';
@@ -46,14 +44,14 @@ class _DetailsMoviePageState extends State<DetailsMoviePage> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 20),
+              const Padding(
+                padding: EdgeInsets.only(left: 20),
                 child: BackButtonWidget(),
               ),
               StreamBuilder<DetailsMovieEntity>(
                   stream: controller.movie,
                   builder: (context, snapshot) {
-                    return snapshot.hasData
+                    return snapshot.hasData && !snapshot.hasError
                         ? Column(
                             children: [
                               Padding(
@@ -133,7 +131,7 @@ class _DetailsMoviePageState extends State<DetailsMoviePage> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Descrição',
                                       style: TextStyle(
                                           fontSize: 16,
@@ -143,7 +141,7 @@ class _DetailsMoviePageState extends State<DetailsMoviePage> {
                                       padding: const EdgeInsets.only(
                                           top: 10, bottom: 50),
                                       child: Text(snapshot.data!.overview,
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                               fontSize: 14,
                                               color: CustomColors.grayDarkColor,
                                               fontWeight: FontWeight.w600)),
@@ -152,7 +150,9 @@ class _DetailsMoviePageState extends State<DetailsMoviePage> {
                                       tagWidth:
                                           MediaQuery.of(context).size.width,
                                       description: 'ORÇAMENTO',
-                                      value: snapshot.data!.budget.toString(),
+                                      value: 'R\$ ' +
+                                          Formats.formaterMoney(
+                                              snapshot.data!.budget),
                                     ),
                                     Padding(
                                       padding: const EdgeInsets.only(
@@ -189,7 +189,12 @@ class _DetailsMoviePageState extends State<DetailsMoviePage> {
                                       MediaQuery.of(context).size.height / 2 -
                                           80,
                                 ),
-                                CircularProgressIndicator(),
+                                snapshot.hasError
+                                    ? Center(
+                                        child: Text(
+                                            'Ocorreu um erro por favor tente novamente!'),
+                                      )
+                                    : CircularProgressIndicator(),
                               ],
                             ),
                           );
