@@ -1,3 +1,5 @@
+import 'package:intl/intl.dart';
+
 import 'const.dart';
 
 class Formats {
@@ -9,5 +11,16 @@ class Formats {
     }
 
     return genres;
+  }
+
+  static String formaterYaer(String date) {
+    List<String> list = date.split('-');
+    return list[0];
+  }
+
+  static String formaterDuration(int time) {
+    var hours = time ~/ 60;
+    var minutos = time % 60;
+    return '${hours}h $minutos min';
   }
 }

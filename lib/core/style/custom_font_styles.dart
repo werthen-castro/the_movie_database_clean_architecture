@@ -32,4 +32,10 @@ class CustomFontStyle {
     fontSize: 24,
     fontWeight: FontWeight.w600,
   );
+
+  static const TextStyle backButton = TextStyle(
+    color: CustomColors.grayDarkColor,
+    fontSize: 16,
+    fontWeight: FontWeight.w600,
+  );
 }

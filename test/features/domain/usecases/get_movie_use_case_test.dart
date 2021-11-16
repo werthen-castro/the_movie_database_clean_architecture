@@ -4,7 +4,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:the_movie_database_clean_arch/core/erros/failures.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/domain/entities/movie_entity.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/domain/repositories/get_movie_repository.dart';
-import 'package:the_movie_database_clean_arch/features/get_movies/domain/usecases/get_movie_use_case.dart';
+import 'package:the_movie_database_clean_arch/features/get_movies/domain/usecases/get_movie_for_genre_use_case.dart';
 import 'package:the_movie_database_clean_arch/usecases/usecase.dart';
 
 import '../../../mocks/movies_mock.dart';
@@ -17,7 +17,7 @@ void main() {
 
   setUp(() {
     repository = MockGetMovieRepository();
-    useCase = GetMovieUseCase(repository);
+    useCase = GetMovieForGenreUseCase(repository);
   });
 
   group('Get Movies For Genre', () {

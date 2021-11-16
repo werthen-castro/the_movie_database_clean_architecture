@@ -17,7 +17,7 @@ class _CustomButtomWidgetState extends State<CustomButtomWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      key: Key(Keys.customButtonWidget),
+      key: const Key(Keys.customButtonWidget),
       onTap: widget.onTap,
       child: Container(
         child: Padding(

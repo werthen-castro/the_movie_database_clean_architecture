@@ -16,7 +16,8 @@ class DetailsMovieModel extends DetailsMovieEntity {
       required String status,
       required String tagline,
       required String title,
-      required double voteAverage})
+      required double voteAverage,
+      required int runtime})
       : super(
             budget: budget,
             genres: genres,
@@ -29,7 +30,8 @@ class DetailsMovieModel extends DetailsMovieEntity {
             status: status,
             tagline: tagline,
             title: title,
-            voteAverage: voteAverage);
+            voteAverage: voteAverage,
+            runtime: runtime);
 
   factory DetailsMovieModel.fromMap(Map<String, dynamic> map) {
     return DetailsMovieModel(
@@ -48,6 +50,7 @@ class DetailsMovieModel extends DetailsMovieEntity {
       tagline: map["tagline"],
       title: map["title"],
       voteAverage: map["vote_average"],
+      runtime: map["runtime"],
     );
   }
 }

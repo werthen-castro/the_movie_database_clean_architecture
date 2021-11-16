@@ -31,6 +31,7 @@ Future _createCardPosterWidget(
 }) async {
   await mockNetworkImagesFor(() => tester.pumpWidget(MaterialApp(
           home: CardPosterWidget(
+        movieId: 1,
         key: key,
         pathImage: pathImage,
         title: title,

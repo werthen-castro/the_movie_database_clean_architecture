@@ -15,6 +15,7 @@ class DetailsMovieEntity extends Equatable {
   String tagline;
   String title;
   double voteAverage;
+  int runtime;
 
   DetailsMovieEntity(
       {required this.id,
@@ -28,7 +29,8 @@ class DetailsMovieEntity extends Equatable {
       required this.status,
       required this.tagline,
       required this.title,
-      required this.voteAverage});
+      required this.voteAverage,
+      required this.runtime});
 
   @override
   List<Object?> get props => [
@@ -43,6 +45,7 @@ class DetailsMovieEntity extends Equatable {
         status,
         tagline,
         title,
-        voteAverage
+        voteAverage,
+        runtime
       ];
 }

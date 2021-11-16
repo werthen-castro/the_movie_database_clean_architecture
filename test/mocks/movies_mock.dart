@@ -194,7 +194,8 @@ DetailsMovieModel mockeDethailsMovieModel = DetailsMovieModel(
     status: 'Released',
     tagline: 'Você não pode fugir do seu destino.',
     title: 'Shang-Chi e a Lenda dos Dez Anéis',
-    voteAverage: 7.9);
+    voteAverage: 7.9,
+    runtime: 132);
 
 MovieModel movieModelMock = const MovieModel(
   id: 580489,

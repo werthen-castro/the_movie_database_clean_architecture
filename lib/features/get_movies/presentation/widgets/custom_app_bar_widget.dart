@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_movie_database_clean_arch/core/utils/const.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/presentation/controllers/app_bar_controller.dart';
+import 'package:the_movie_database_clean_arch/features/get_movies/presentation/pages/search_page.dart';
 
 import 'custom_button_widget.dart';
 
@@ -12,7 +13,7 @@ class CustomAppBarWidget extends StatefulWidget implements PreferredSizeWidget {
   _CustomAppBarWidgetState createState() => _CustomAppBarWidgetState();
 
   @override
-  Size get preferredSize => const Size.fromHeight(200.0);
+  Size get preferredSize => const Size.fromHeight(180.0);
 }
 
 class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
@@ -39,10 +40,17 @@ class _CustomAppBarWidgetState extends State<CustomAppBarWidget> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 5),
               child: TextField(
+                readOnly: true,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchMoviePage()));
+                },
                 decoration: InputDecoration(
-                  label: Text('Pesquise filmes'),
+                  label: const Text('Pesquise filmes'),
                   prefixIcon: const Icon(Icons.search),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(26.0),

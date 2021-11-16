@@ -5,7 +5,9 @@ import 'package:the_movie_database_clean_arch/features/get_movies/data/datasourc
 import 'package:the_movie_database_clean_arch/features/get_movies/data/datasource/get_movies_data_source_impl.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/data/repositories/get_movie_repository_impl.dart';
 import 'package:the_movie_database_clean_arch/features/get_movies/domain/repositories/get_movie_repository.dart';
-import 'package:the_movie_database_clean_arch/features/get_movies/domain/usecases/get_movie_use_case.dart';
+import 'package:the_movie_database_clean_arch/features/get_movies/domain/usecases/get_movie_for_genre_use_case.dart';
+import 'package:the_movie_database_clean_arch/features/get_movies/domain/usecases/get_movie_for_id_use_case.dart';
+import 'package:the_movie_database_clean_arch/features/get_movies/domain/usecases/search_movie_use_case.dart';
 
 class Injector {
   static GetIt getIt = GetIt.instance;
@@ -24,6 +26,12 @@ class Injector {
 
     // Usecases
     getIt.registerLazySingleton(
-        () => GetMovieUseCase(getIt.get<GetMovieRepository>()));
+        () => GetMovieForGenreUseCase(getIt.get<GetMovieRepository>()));
+
+    getIt.registerLazySingleton(
+        () => GetMovieForIdUseCase(getIt.get<GetMovieRepository>()));
+
+    getIt.registerLazySingleton(
+        () => SearchMovieUseCase(getIt.get<GetMovieRepository>()));
   }
 }
