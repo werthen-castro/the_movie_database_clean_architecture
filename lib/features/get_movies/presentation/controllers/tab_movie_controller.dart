@@ -27,7 +27,5 @@ class TabMovieController {
     }, (response) {
       _listMovies.add(response);
     });
-
-    inspect(result);
   }
 }

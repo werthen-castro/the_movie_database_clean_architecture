@@ -30,7 +30,7 @@ class CardPosterWidget extends StatelessWidget {
                 builder: (context) => DetailsMoviePage(id: movieId)));
       },
       child: Padding(
-        padding: const EdgeInsets.only(top: 15, left: 30, right: 30),
+        padding: const EdgeInsets.only(top: 15, left: 20, right: 20),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(26.0),
           child: Stack(
