@@ -21,7 +21,8 @@ class GetMoviesDataSourceImpl implements GetMoviesDataSource {
       return List<MovieModel>.from(
           response.data['results'].map((model) => MovieModel.fromMap(model)));
     } else {
-      return throw CustomServerException(messageError: response.statusMessage);
+      return throw CustomServerException(
+          messageError: response.statusMessage, timeout: response.timeout);
     }
   }
 
@@ -32,7 +33,8 @@ class GetMoviesDataSourceImpl implements GetMoviesDataSource {
     if (response.statusCode == 200) {
       return DetailsMovieModel.fromMap(response.data);
     } else {
-      return throw CustomServerException(messageError: response.statusMessage);
+      return throw CustomServerException(
+          messageError: response.statusMessage, timeout: response.timeout);
     }
   }
 
@@ -46,7 +48,8 @@ class GetMoviesDataSourceImpl implements GetMoviesDataSource {
       return List<MovieModel>.from(
           response.data['results'].map((model) => MovieModel.fromMap(model)));
     } else {
-      return throw CustomServerException(messageError: response.statusMessage);
+      return throw CustomServerException(
+          messageError: response.statusMessage, timeout: response.timeout);
     }
   }
 }

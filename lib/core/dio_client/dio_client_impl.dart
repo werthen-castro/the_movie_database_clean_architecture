@@ -1,4 +1,8 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:dio/dio.dart';
+import 'package:the_movie_database_clean_arch/core/erros/error_messages.dart';
 
 import 'dio_client.dart';
 import 'dio_response.dart';
@@ -21,6 +25,15 @@ class DioClientImpl implements DioClient {
       return DioResponse(
           statusCode: error.response?.statusCode,
           statusMessage: error.response?.statusMessage);
+    } on TimeoutException catch (_) {
+      return DioResponse(
+        statusMessage: ErrorMessages.errorTimeout,
+        timeout: true,
+      );
+    } on SocketException catch (exception) {
+      return DioResponse(
+        statusMessage: exception.message,
+      );
     }
 
     return DioResponse(
