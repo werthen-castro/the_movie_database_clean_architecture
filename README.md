@@ -1,16 +1,21 @@
-# the_movie_database_clean_arch
+# The Movie Database Clean Architecture
 
-A new Flutter project.
+## Features Adicionadas 
 
-## Getting Started
+- [x] Utilizar Clean Architecture
+- [x] Testes em todas as Camadas
+- [x] Componentização de Widgets
+- [x] Genrência de estado com BloC
+- [x] Cliente Http Dio
 
-This project is a starting point for a Flutter application.
+O aplicativo foi criado para o [processo seletivo da Cubos Tecnologia](https://www.figma.com/file/p2vU5rmkSnulbxEqHjk5ah/Desafio-Flutter-Cubos?node-id=0%3A1) 
 
-A few resources to get you started if this is your first Flutter project:
+## Telas
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img src="https://user-images.githubusercontent.com/37318106/149240526-203a7736-6e7f-4f2d-9c53-3aacd6c8ec49.png" width="350"/>
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+<img src="https://user-images.githubusercontent.com/37318106/149241669-79266fb9-1bd7-4516-a61c-8279d0c18381.png" width="350"/>
+
+
+<img src="https://user-images.githubusercontent.com/37318106/149241677-32d75851-db5d-43b3-a16d-95e244772e67.png" width="350"/>
